@@ -1,0 +1,19 @@
+{namespace templates.teapot.util autoescape="false"}
+/**
+ * Template for the popup Logger
+ * @param style the style to be used
+ */
+{template .Logger}
+<html>
+<head>
+<style type="text/css">
+{$style}
+</style>
+<title>logger</title>
+</head>
+<body>
+	<div id="logContainer"></div>
+	<a id="tail" name="tail">&nbsp;</a>
+</body>
+</html>
+{/template}

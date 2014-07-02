@@ -1,0 +1,12 @@
+{namespace templates.teapot.ui}
+/**
+ * Template for teapot.ui.Command class
+ * @param name The name of the Command control.
+ * @param? spriteposition Optional position attribute for the image sprite.
+ */
+{template .Command}
+  <div class="teapot-ui-command">
+  	<span class="teapot-ui-command-icon" style="{$spriteposition}"></span>
+  	<span class="teapot-ui-command-text">{$name}</span>
+  </div>
+{/template}

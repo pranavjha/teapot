@@ -1,0 +1,55 @@
+@def BASE_FONT "Open Sans Light"; 
+footer {
+	font-family: BASE_FONT;
+	line-height: 100px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	text-align: right;
+	box-shadow: 0 0 5px #000000;
+	background: #00A0CA;
+	padding: 0px 100px 10px 0;
+	transition: padding-top 1s;
+}
+
+footer:hover {
+	box-shadow: 0 0 20px #000000;
+	padding: 30px 100px 10px 0;
+}
+
+.appName {
+	font-size: 70px;
+	color: #FFFFFF;
+	text-shadow: 0 0 10px #FFFFFF;
+	transition: text-shadow 1s;
+	-webkit-user-select: none;
+	cursor: default;
+	text-decoration:none;
+}
+
+.appName:hover {
+	text-shadow: 1px 1px 2px #000000;
+}
+.links {
+	font-size: 30px;
+	position: absolute;
+	bottom: 0;
+	line-height: 110px;
+	left: 0;
+	padding: 0 0 0 50px;
+	color: #008BAF;
+	z-index: 2;
+}
+
+.links a {
+	text-decoration: none;
+	color: #D0D0D0;
+	transition: color 1s, text-shadow 1s;
+}
+
+.links a:hover {
+	color: #FFFFFF;
+	text-shadow: 0 0 5px #000000;
+}

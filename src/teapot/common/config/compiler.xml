@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE compile:configuration SYSTEM "compiler.dtd">
+<compile:configuration>
+	<!-- all static scripts are merged here -->
+	<scripts mergedir="script" basedir="script">
+		<to-file>
+			<name>statics-all.js</name>
+			<!-- load all statics except bootstrap(because its bootstrap!) and configurator 
+				(configurator should be the last script to load) -->
+			<include>statics/**.js</include>
+			<exclude>statics/configurator.js</exclude>
+			<exclude>statics/bootstrap.js</exclude>
+			<!-- FIXME: move to a separate package -->
+			<include>teapot/util/StaticUtils.js</include>
+			<include>teapot/util/Logger.js</include>
+			<!-- load the base classes -->
+			<include>teapot/base/**.js</include>
+			<!-- load utils classes -->
+			<include>teapot/util/**.js</include>
+			<!-- finally, load the configurator -->
+			<include>statics/configurator.js</include>
+		</to-file>
+	</scripts>
+	<!-- all dwr public scripts are merged here -->
+	<scripts mergedir="script" basedir="dwr" compilation-level="SIMPLE_OPTIMIZATIONS">
+		<to-file>
+			<name>dwr-public.js</name>
+			<include protocol="SERVER">engine.js</include>
+			<include protocol="SERVER">interface/ScriptLogger.js</include>
+		</to-file>
+	</scripts>
+	<!-- merging statics styles -->
+	<styles mergedir="styles" basedir="styles">
+		<to-file>
+			<name>statics-all.css</name>
+			<include>statics/**.gss</include>
+			<include>teapot/ui/**.gss</include>
+			<include>teapot/util/**.gss</include>
+		</to-file>
+	</styles>
+	<!-- merging statics templates -->
+	<templates mergedir="templates" basedir="templates">
+		<to-file>
+			<name>statics-all.js</name>
+			<include>teapot/ui/**.soy</include>
+			<include>teapot/util/**.soy</include>
+		</to-file>
+	</templates>
+</compile:configuration>

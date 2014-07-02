@@ -1,0 +1,15 @@
+{namespace templates.teapot.util autoescape="false"}
+/**
+ * Template for mask
+ * @param? message optional message
+ * @param? messageStyle optional message style
+ */
+{template .Mask}
+<div class="teapot-util-mask">
+	{if $message}
+		<div class="mask-view" {if $messageStyle}style="{$messageStyle}"{/if}>
+			{$message}
+		</div>
+	{/if}
+</div>
+{/template}

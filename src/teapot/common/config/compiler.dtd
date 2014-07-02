@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A configuration element consists of optional scripts, templates and styles elements-->
+<!ELEMENT compile:configuration (scripts*,templates*,styles*)+>
+<!--compilation-level is used to identify the compression level and the compilation strictness.
+ This is overridden by the compilation option available in child elements. However, for resources 
+ that are not mapped, The default compilation level specified here is used-->
+<!ATTLIST compile:configuration 
+	compilation-level (WHITESPACE_ONLY|SIMPLE_OPTIMIZATIONS|ADVANCED_OPTIMIZATIONS) #IMPLIED
+>
+<!--A script element is the container for all scripts that have to be compiled-->
+<!ELEMENT scripts (to-file+)>
+<!--basedir is the classpath relative path to the directory where the input files reside.
+mergedir is the classpath relative path to the directory where the merged fles should be kept
+compilation-level is used to identify the compression level and the compilation strictness.
+ This is overridden by the compilation option available in child elements.-->
+<!ATTLIST scripts 
+	basedir CDATA #REQUIRED
+	mergedir CDATA #REQUIRED
+	compilation-level (WHITESPACE_ONLY|SIMPLE_OPTIMIZATIONS|ADVANCED_OPTIMIZATIONS) #IMPLIED
+>
+<!--A template element is the container for all templates that have to be compiled-->
+<!ELEMENT templates (to-file+)>
+<!--basedir is the classpath relative path to the directory where the input files reside.
+mergedir is the classpath relative path to the directory where the merged fles should be kept
+compilation-level is used to identify the compression level and the compilation strictness.
+ This is overridden by the compilation option available in child elements.-->
+<!ATTLIST templates 
+	basedir CDATA #REQUIRED
+	mergedir CDATA #REQUIRED
+	compilation-level (WHITESPACE_ONLY|SIMPLE_OPTIMIZATIONS|ADVANCED_OPTIMIZATIONS) #IMPLIED
+>
+<!--A styles element is the container for all styles that have to be compiled-->
+<!ELEMENT styles (to-file+)>
+<!--basedir is the classpath relative path to the directory where the input files reside.
+mergedir is the classpath relative path to the directory where the merged fles should be kept
+compilation-level is used to identify the compression level and the compilation strictness.
+ This is overridden by the compilation option available in child elements.-->
+<!ATTLIST styles 
+	basedir CDATA #REQUIRED
+	mergedir CDATA #REQUIRED
+	compilation-level (WHITESPACE_ONLY|SIMPLE_OPTIMIZATIONS|ADVANCED_OPTIMIZATIONS) #IMPLIED
+>
+<!-- A to-file element represents one atomic compilation. -->
+<!ELEMENT to-file (name,(include+,exclude*)+)>
+<!-- comma separated list of dependencies (file paths relative to basedir) which have to be compiled before compiling this file -->
+<!ATTLIST to-file 
+	dependency CDATA #IMPLIED
+>
+<!-- name of the compiled output file -->
+<!ELEMENT name (#PCDATA)>
+<!-- glob file patterns to exclude relative to basedir -->
+<!ELEMENT include (#PCDATA)>
+<!-- glob file patterns to include relative to basedir -->
+<!ELEMENT exclude (#PCDATA)>
+<!-- the protocol that is to be used to handle the file, if not specified, the default value will be file protocol -->
+<!ATTLIST include 
+	protocol (FILE|HTTP|SERVER) "FILE"
+>
+<!-- the protocol that is to be used to handle the file, if not specified, the default value will be file protocol -->
+<!ATTLIST exclude 
+	protocol (FILE|HTTP|SERVER) "FILE"
+>

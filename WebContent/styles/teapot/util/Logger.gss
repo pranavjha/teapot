@@ -1,0 +1,23 @@
+.log {
+	padding: 5px 10px;
+	font-family: Consolas, Lucida Sans Typewriter;
+	white-space: pre-wrap;
+	font-size: 12px;
+	border-bottom: 1px solid #E2E2E2;
+}
+
+.info {
+	color: #1FC000;
+}
+
+.debug {
+	color: #16678D;
+}
+
+.warn {
+	color: #C27400;
+}
+
+.error {
+	color: #DA0404;
+}

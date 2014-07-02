@@ -1,0 +1,10 @@
+@def FONT_FAMILY Lucida Grande, Calibri, Arial, Sans Serif;
+@def FONT_SIZE   11px;
+/* default styles*/
+body {
+	margin:0;
+	padding: 0;
+	background:#DDDDFF;
+	font-family: FONT_FAMILY;
+	font-size: FONT_SIZE;
+}
